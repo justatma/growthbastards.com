@@ -1,7 +1,8 @@
 name: Deploy to GoDaddy (FTPS)
 
 # Ships the repo to its GoDaddy doc root on every push to main.
-# The FTP account is chrooted to this site's doc root, so server-dir is ./.
+# The FTP account lands in the cPanel home folder (/home/dob2oep8p96h), one level
+# above the doc root, so server-dir is public_html/.
 #
 # SAFETY: dangerous-clean-slate stays false. On growthbastards.com (main domain,
 # doc root = /public_html) it must NEVER be enabled — cleaning would delete every
@@ -30,7 +31,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          server-dir: ./
+          server-dir: public_html/
           local-dir: ./
           dangerous-clean-slate: false
           timeout: 60000
@@ -53,7 +54,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          server-dir: ./
+          server-dir: public_html/
           local-dir: ./
           dangerous-clean-slate: false
           timeout: 60000
