@@ -1,0 +1,21 @@
+{
+  "name": "Growth Bastards",
+  "short_name": "Growth Bastards",
+  "description": "One senior marketing leader and the agentic marketing organization he built. Hire Atma as your Director of Marketing, or hire Growth Bastards as your agency.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F3F0E8",
+  "theme_color": "#1B1B1B",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
