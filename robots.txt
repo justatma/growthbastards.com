@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.growthbastards.com/sitemap.xml
+Sitemap: https://growthbastards.com/sitemap.xml
