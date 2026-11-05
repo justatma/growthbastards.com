@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech Stack | Growth Bastards</title>
+<meta name="description" content="The technology behind AtmaOS and the Growth Bastards agentic marketing organization: languages, AI services, data, statistics, interfaces and deployment.">
+<link rel="canonical" href="https://www.growthbastards.com/tech-stack.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Atma Degeyndt">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Growth Bastards">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://www.growthbastards.com/tech-stack.html">
+<meta property="og:title" content="The tech stack behind Growth Bastards">
+<meta property="og:description" content="The technology behind AtmaOS and the Growth Bastards agentic marketing organization: languages, AI services, data, statistics, interfaces and deployment.">
+<meta property="og:image" content="https://www.growthbastards.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The tech stack behind Growth Bastards">
+<meta name="twitter:description" content="The technology behind AtmaOS and the Growth Bastards agentic marketing organization: languages, AI services, data, statistics, interfaces and deployment.">
+<meta name="twitter:image" content="https://www.growthbastards.com/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1B1B1B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap">
+<style>
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:#F3F0E8;color:#1B1B1B;-webkit-font-smoothing:antialiased;font-family:Jost,Futura,'Century Gothic',sans-serif}
+a{color:#386C71;text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{color:#EB5443}
+a:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+::selection{background:#F0B323;color:#1B1B1B}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.skip{position:absolute;left:-9999px;top:12px;z-index:100;background:#1B1B1B;color:#F3F0E8;padding:12px 18px;font:600 15px/1 Jost,sans-serif;text-decoration:none}
+.skip:focus{left:12px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:clamp(20px,10.4vw,112px);padding-right:clamp(20px,10.4vw,112px);box-sizing:border-box}
+.topbar{height:26px;background:#1B1B1B}
+nav{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:32px}
+.brand{display:flex;align-items:center;gap:12px;color:#1B1B1B;text-decoration:none}
+.brand:hover{color:#1B1B1B}
+.mark{position:relative;width:36px;height:28.32px;flex:none;isolation:isolate}
+.mark span{position:absolute}
+.word{font:600 15px/1 Jost,sans-serif;letter-spacing:0.42em;white-space:nowrap}
+.back{font:500 15px/1 Jost,sans-serif;color:#1B1B1B;text-decoration:none}
+.back:hover{color:#EB5443}
+header .intro{padding:clamp(56px,8vw,88px) 0 56px}
+.eyebrow{font:500 13px/1.5 Jost,sans-serif;letter-spacing:0.28em;text-transform:uppercase;margin:0 0 22px;color:#5B5555}
+h1{margin:0;font:700 clamp(40px,7vw,76px)/0.95 Jost,sans-serif;letter-spacing:-0.025em;max-width:780px}
+.rule{width:120px;height:8px;background:#EB5443;margin:36px 0 28px}
+.lede{margin:0;max-width:640px;font:400 19px/1.55 Jost,sans-serif;text-wrap:pretty}
+.meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin:28px 0 0;padding:0;list-style:none;font:500 14px/1.4 Jost,sans-serif;color:#5B5555}
+.meta strong{color:#1B1B1B;font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:12px 28px;margin:32px 0 0;padding:18px 0 0;border-top:2px solid #1B1B1B;font:400 14px/1.5 Jost,sans-serif;color:#3A3636}
+.legend div{display:flex;align-items:baseline;gap:10px;max-width:300px}
+.tag{display:inline-block;vertical-align:2px;margin-left:10px;padding:3px 7px 2px;font:600 10.5px/1 Jost,sans-serif;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:2px;white-space:nowrap}
+.legend .tag{margin-left:0;flex:none}
+.tag-planned{color:#386C71}
+.tag-candidate{color:#8A6A12}
+.tag-conditional{color:#5B5555;border-style:dashed}
+.toc{background:#1B1B1B;color:#F3F0E8}
+.toc ol{list-style:none;margin:0;padding:28px 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px 28px}
+.toc a{color:#F3F0E8;text-decoration:none;font:500 15px/1.35 Jost,sans-serif;display:flex;gap:12px}
+.toc a:hover{color:#F0B323}
+.num{font:600 13px/1.6 Jost,sans-serif;letter-spacing:0.08em;color:#EB5443;font-variant-numeric:tabular-nums;flex:none}
+main{padding:24px 0 96px}
+.layer{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:16px 48px;padding:40px 0;border-bottom:1.5px solid #D9D5CB;scroll-margin-top:16px}
+.layer:last-child{border-bottom:0}
+h2{margin:0;font:600 21px/1.25 Jost,sans-serif;letter-spacing:-0.005em;display:flex;gap:14px;align-items:baseline;position:sticky;top:20px;align-self:start}
+dl{margin:0}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:6px 32px;padding:14px 0;border-top:1px solid #E3DFD5}
+.row:first-child{border-top:0;padding-top:2px}
+dt{font:600 16px/1.45 Jost,sans-serif}
+dd{margin:0;font:400 16px/1.5 Jost,sans-serif;color:#3A3636;text-wrap:pretty}
+@media (max-width:820px){
+ .layer{grid-template-columns:1fr;gap:20px}
+ h2{position:static}
+}
+@media (max-width:560px){
+ .row{grid-template-columns:1fr;gap:4px}
+}
+footer{background:#1B1B1B;color:#F3F0E8}
+footer .wrap{padding-top:36px;padding-bottom:40px;display:flex;flex-direction:column;gap:24px}
+footer .top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .links{display:flex;gap:24px;flex-wrap:wrap;font:500 15px/1 Jost,sans-serif}
+footer .links a{color:#F3F0E8;text-decoration:none}
+footer .links a:hover{color:#F0B323}
+footer .fine{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;border-top:2px solid #5B5555;padding-top:20px;font:400 13px/1.5 Jost,sans-serif;color:#D9D5CB}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+<div class="topbar"></div>
+<div class="wrap">
+<nav>
+<a href="/" class="brand"><span class="mark" aria-hidden="true">
+<span style="left:0;top:0;width:22.08px;height:22.08px;border-radius:50%;background:#EB5443"></span>
+<span style="left:14.88px;top:7.2px;width:18.72px;height:18.72px;border-radius:50%;background:#3FB3BB;mix-blend-mode:multiply"></span>
+<span style="left:4.8px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:11.04px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:19.2px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:24.48px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:6.24px;top:14.88px;width:8.16px;height:1.92px;background:#F3F0E8"></span>
+<span style="left:21.12px;top:20.16px;width:6.24px;height:1.68px;background:#F3F0E8"></span>
+</span><span class="word">GROWTH BASTARDS</span></a>
+<a href="/" class="back">&larr; back to the agency</a>
+</nav>
+<div class="intro">
+<p class="eyebrow">AtmaOS · tech stack</p>
+<h1>The tech stack behind the agency.</h1>
+<div class="rule"></div>
+<p class="lede">The shared technology behind AtmaOS, Boswell, Bayesian Ad Management, the Compliance Engine, Dr. UX, Assumption Annihilator and Arkwright.</p>
+<ul class="meta">
+<li><strong>Version 0.3</strong></li>
+<li>Updated November 5, 2026</li>
+<li>14 layers · 69 components</li>
+</ul>
+<div class="legend">
+<div><span class="tag tag-conditional">conditional</span><span>Adopted only if a measured need calls for it.</span></div>
+</div>
+</div>
+</div>
+</header>
+<nav class="toc" aria-label="Layers">
+<div class="wrap"><ol>
+<li><a href="#languages-and-runtime"><span class="num">01</span>Languages and runtime</a></li>
+<li><a href="#ai-and-research-services"><span class="num">02</span>AI and research services</a></li>
+<li><a href="#databases-and-storage"><span class="num">03</span>Databases and storage</a></li>
+<li><a href="#apis-and-data-connections"><span class="num">04</span>APIs and data connections</a></li>
+<li><a href="#web-interfaces"><span class="num">05</span>Web interfaces</a></li>
+<li><a href="#statistics-and-machine-learning"><span class="num">06</span>Statistics and machine learning</a></li>
+<li><a href="#analytical-storage-and-processing"><span class="num">07</span>Analytical storage and processing</a></li>
+<li><a href="#metrics-retrieval-and-model-services"><span class="num">08</span>Metrics retrieval and model services</a></li>
+<li><a href="#workflow-and-dashboard-services"><span class="num">09</span>Workflow and dashboard services</a></li>
+<li><a href="#documents-and-reporting"><span class="num">10</span>Documents and reporting</a></li>
+<li><a href="#browser-diagnostics"><span class="num">11</span>Browser diagnostics</a></li>
+<li><a href="#validation-and-configuration"><span class="num">12</span>Validation and configuration</a></li>
+<li><a href="#testing-and-code-quality"><span class="num">13</span>Testing and code quality</a></li>
+<li><a href="#development-and-deployment"><span class="num">14</span>Development and deployment</a></li>
+</ol></div>
+</nav>
+<main id="main">
+<div class="wrap">
+<section class="layer" id="languages-and-runtime">
+<h2><span class="num">01</span>Languages and runtime</h2>
+<dl>
+<div class="row"><dt>Python 3.12+</dt><dd>Backend services and analysis; Python 3.13 on the development Mac.</dd></div>
+<div class="row"><dt>TypeScript and Node.js 22</dt><dd>Web applications and Dr. UX workers.</dd></div>
+</dl>
+</section>
+<section class="layer" id="ai-and-research-services">
+<h2><span class="num">02</span>AI and research services</h2>
+<dl>
+<div class="row"><dt>Anthropic Claude</dt><dd>Model calls through the Python 1.x and JavaScript SDKs; Opus and Sonnet routing.</dd></div>
+<div class="row"><dt>Voyage AI</dt><dd>Text embeddings.</dd></div>
+<div class="row"><dt>Amazon Bedrock and boto3</dt><dd>Secondary embedding route; image and document reading.</dd></div>
+<div class="row"><dt>OpenAI, Google Gemini and Exa</dt><dd>External services used by Boswell.</dd></div>
+<div class="row"><dt>YouTube and youtube-transcript-api</dt><dd>Transcript collection.</dd></div>
+</dl>
+</section>
+<section class="layer" id="databases-and-storage">
+<h2><span class="num">03</span>Databases and storage</h2>
+<dl>
+<div class="row"><dt>PostgreSQL 16</dt><dd>Relational database; local instances for development and tests.</dd></div>
+<div class="row"><dt>Neon</dt><dd>Managed AtmaOS database; protected main branch and seven-day point-in-time recovery.</dd></div>
+<div class="row"><dt>Supabase</dt><dd>Database, authentication and server rendering helpers for Assumption Annihilator.</dd></div>
+<div class="row"><dt>pgvector and pg_trgm</dt><dd>Vector search and text similarity; PostgreSQL also supplies full-text search.</dd></div>
+<div class="row"><dt>psycopg 3 and pg</dt><dd>Python and Node.js database access.</dd></div>
+<div class="row"><dt>SQLAlchemy and Alembic</dt><dd>Database access and migrations for the compliance engine.</dd></div>
+<div class="row"><dt>AtmaOS SQL migration runner</dt><dd>Checksummed, append-only migrations.</dd></div>
+<div class="row"><dt>PostgreSQL access controls</dt><dd>Database roles, row-level rules, triggers and signature guards.</dd></div>
+<div class="row"><dt>Object storage</dt><dd>AtmaOS file storage, alongside Cloudflare R2.</dd></div>
+</dl>
+</section>
+<section class="layer" id="apis-and-data-connections">
+<h2><span class="num">04</span>APIs and data connections</h2>
+<dl>
+<div class="row"><dt>Starlette, FastAPI and Uvicorn</dt><dd>HTTP APIs and API hosting.</dd></div>
+<div class="row"><dt>httpx and requests</dt><dd>Outbound HTTP calls.</dd></div>
+<div class="row"><dt>Meta Marketing API v26, Google Ads API and LinkedIn Marketing API</dt><dd>Advertising connectors.</dd></div>
+<div class="row"><dt>Google Analytics 4 and Shopify exports</dt><dd>Analytics and order data.</dd></div>
+</dl>
+</section>
+<section class="layer" id="web-interfaces">
+<h2><span class="num">05</span>Web interfaces</h2>
+<dl>
+<div class="row"><dt>React 18, Next.js and Vite</dt><dd>Web applications and frontend builds.</dd></div>
+<div class="row"><dt>Tailwind CSS and Radix UI</dt><dd>Styling and interface components.</dd></div>
+<div class="row"><dt>Framer Motion, Recharts and React Flow</dt><dd>Animation, charts and interactive diagrams.</dd></div>
+<div class="row"><dt>oidc-client-ts</dt><dd>OpenID Connect sign-in.</dd></div>
+</dl>
+</section>
+<section class="layer" id="statistics-and-machine-learning">
+<h2><span class="num">06</span>Statistics and machine learning</h2>
+<dl>
+<div class="row"><dt>NumPy, SciPy and pandas</dt><dd>Numerical analysis and data preparation.</dd></div>
+<div class="row"><dt>JAX, jaxlib and NumPyro</dt><dd>Bayesian computation and inference.</dd></div>
+<div class="row"><dt>ArviZ</dt><dd>Posterior analysis and inference diagnostics.</dd></div>
+<div class="row"><dt>PyArrow</dt><dd>Columnar data processing.</dd></div>
+<div class="row"><dt>scikit-learn</dt><dd>Classification, regression, clustering and model evaluation.</dd></div>
+<div class="row"><dt>XGBoost; CatBoost alternative</dt><dd>Prediction from structured customer and campaign data.</dd></div>
+<div class="row"><dt>BERTopic, HDBSCAN and optional UMAP</dt><dd>Topic discovery and clustering.</dd></div>
+<div class="row"><dt>Sentence Transformers</dt><dd>Local text embeddings and retrieval reranking.</dd></div>
+<div class="row"><dt>SHAP</dt><dd>Explanations of model predictions.</dd></div>
+<div class="row"><dt>statsmodels and scikit-survival</dt><dd>Forecasting and time-to-outcome analysis.</dd></div>
+<div class="row"><dt>EconML</dt><dd>Causal forests and double machine learning.</dd></div>
+</dl>
+</section>
+<section class="layer" id="analytical-storage-and-processing">
+<h2><span class="num">07</span>Analytical storage and processing</h2>
+<dl>
+<div class="row"><dt>Apache Parquet</dt><dd>Versioned analytical datasets and training snapshots.</dd></div>
+<div class="row"><dt>DuckDB and isolated Python workers</dt><dd>Analytical SQL, feature preparation, training and inference.</dd></div>
+<div class="row"><dt>Apache Iceberg and Apache Polaris<span class="tag tag-conditional">conditional</span></dt><dd>Shared analytical tables, snapshots and concurrent writes.</dd></div>
+<div class="row"><dt>Trino<span class="tag tag-conditional">conditional</span></dt><dd>Distributed analytical SQL when single-node benchmarks fail.</dd></div>
+</dl>
+</section>
+<section class="layer" id="metrics-retrieval-and-model-services">
+<h2><span class="num">08</span>Metrics retrieval and model services</h2>
+<dl>
+<div class="row"><dt>AtmaOS metric service</dt><dd>Shared metric definitions and authorized queries.</dd></div>
+<div class="row"><dt>MetricFlow and dbt Semantic Layer<span class="tag tag-conditional">conditional</span></dt><dd>Central metric calculation and join rules.</dd></div>
+<div class="row"><dt>Hybrid retrieval and Reciprocal Rank Fusion</dt><dd>Combined keyword and vector evidence search.</dd></div>
+<div class="row"><dt>HNSW indexing and Qdrant<span class="tag tag-conditional">conditional</span></dt><dd>Faster vector retrieval when measured targets require it.</dd></div>
+<div class="row"><dt>AtmaOS feature and model records</dt><dd>Feature definitions, model versions, evaluations and deployment history.</dd></div>
+<div class="row"><dt>MLflow<span class="tag tag-conditional">conditional</span></dt><dd>Shared model registry and release interface.</dd></div>
+<div class="row"><dt>Feast<span class="tag tag-conditional">conditional</span></dt><dd>Shared, current features for online predictions.</dd></div>
+<div class="row"><dt>OpenLineage<span class="tag tag-conditional">conditional</span></dt><dd>Data and model lineage across transformation systems.</dd></div>
+</dl>
+</section>
+<section class="layer" id="workflow-and-dashboard-services">
+<h2><span class="num">09</span>Workflow and dashboard services</h2>
+<dl>
+<div class="row"><dt>PostgreSQL job queue and transactional outbox</dt><dd>Durable analytical jobs, checkpoints and retries.</dd></div>
+<div class="row"><dt>Dataset publishing workers</dt><dd>Validated, versioned datasets and artifact manifests.</dd></div>
+<div class="row"><dt>Arkwright dashboard and engine adapters</dt><dd>Evidence review, specialist collaboration and authorized action requests.</dd></div>
+</dl>
+</section>
+<section class="layer" id="documents-and-reporting">
+<h2><span class="num">10</span>Documents and reporting</h2>
+<dl>
+<div class="row"><dt>python-docx, lxml, olefile and mammoth</dt><dd>Word and legacy Word processing; XML handling.</dd></div>
+<div class="row"><dt>pdfplumber, pypdfium2 and unpdf</dt><dd>PDF reading and extraction.</dd></div>
+<div class="row"><dt>Pillow</dt><dd>Image processing.</dd></div>
+<div class="row"><dt>ReportLab and Jinja2</dt><dd>PDF generation and report templates.</dd></div>
+<div class="row"><dt>openpyxl</dt><dd>Excel reading and writing.</dd></div>
+</dl>
+</section>
+<section class="layer" id="browser-diagnostics">
+<h2><span class="num">11</span>Browser diagnostics</h2>
+<dl>
+<div class="row"><dt>Playwright</dt><dd>Browser automation and UX instrumentation.</dd></div>
+<div class="row"><dt>axe-core</dt><dd>Accessibility checks.</dd></div>
+</dl>
+</section>
+<section class="layer" id="validation-and-configuration">
+<h2><span class="num">12</span>Validation and configuration</h2>
+<dl>
+<div class="row"><dt>Pydantic 2, pydantic-settings and Zod</dt><dd>Record validation, data contracts and typed settings.</dd></div>
+<div class="row"><dt>PyYAML and YAML registries</dt><dd>Identity files, statistical defaults, diagnostics and rule configuration.</dd></div>
+<div class="row"><dt>python-dotenv</dt><dd>Local environment configuration.</dd></div>
+<div class="row"><dt>Compliance rule packs</dt><dd>Claim and rule review definitions.</dd></div>
+</dl>
+</section>
+<section class="layer" id="testing-and-code-quality">
+<h2><span class="num">13</span>Testing and code quality</h2>
+<dl>
+<div class="row"><dt>pytest and Hypothesis</dt><dd>Python tests and property-based testing.</dd></div>
+<div class="row"><dt>Vitest and fast-check</dt><dd>TypeScript tests and property-based testing.</dd></div>
+<div class="row"><dt>Ruff, ESLint and Prettier</dt><dd>Linting and formatting.</dd></div>
+</dl>
+</section>
+<section class="layer" id="development-and-deployment">
+<h2><span class="num">14</span>Development and deployment</h2>
+<dl>
+<div class="row"><dt>GitHub and GitHub Actions</dt><dd>Source control and continuous integration.</dd></div>
+<div class="row"><dt>Docker Compose</dt><dd>Local service environments, including databases and Dr. UX egress.</dd></div>
+<div class="row"><dt>pnpm and tsx</dt><dd>JavaScript workspace management and TypeScript scripts.</dd></div>
+<div class="row"><dt>Make and deployment scripts</dt><dd>Build and deployment commands.</dd></div>
+<div class="row"><dt>Vercel</dt><dd>Assumption Annihilator hosting.</dd></div>
+</dl>
+</section>
+</div>
+</main>
+<footer>
+<div class="wrap">
+<div class="top">
+<a href="/" class="brand" style="color:#F3F0E8"><span class="mark" aria-hidden="true">
+<span style="left:0;top:0;width:22.08px;height:22.08px;border-radius:50%;background:#EB5443"></span>
+<span style="left:14.88px;top:7.2px;width:18.72px;height:18.72px;border-radius:50%;background:#3FB3BB;mix-blend-mode:multiply"></span>
+<span style="left:4.8px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:11.04px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:19.2px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:24.48px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:6.24px;top:14.88px;width:8.16px;height:1.92px;background:#1B1B1B"></span>
+<span style="left:21.12px;top:20.16px;width:6.24px;height:1.68px;background:#1B1B1B"></span>
+</span><span class="word">GROWTH BASTARDS</span></a>
+<div class="links">
+<a href="/">home</a>
+<a href="/marketing-sucks.html">marketing sucks</a>
+<a href="/#hire">hire</a>
+</div>
+</div>
+<div class="fine">
+<span style="max-width:620px">Growth Bastards is an agentic agency. Atma is human; the specialist team is AI: built, directed, and answered for by him.</span>
+<span>© 2026 Growth Bastards</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
