@@ -131,6 +131,12 @@ strong{font-weight:600}
 .btn i{width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #1B1B1B}
 .stack{display:inline-block;margin-top:28px;font:500 16px/1.4 Jost,sans-serif}
 
+.demo{background:#1B1B1B;color:#F3F0E8;border-top:8px solid #1B1B1B;padding:56px 0 64px}
+.demo-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin-bottom:22px}
+.demo-head h2{margin:0;font:700 clamp(28px,3.6vw,40px)/1.05 Jost,sans-serif;letter-spacing:-0.025em}
+.demo-head span{font:500 13px/1 Jost,sans-serif;letter-spacing:0.28em;text-transform:uppercase;color:#F0B323}
+.demo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border:3px solid #F3F0E8;box-shadow:10px 10px 0 #EB5443;box-sizing:border-box}
+@media (max-width:760px){.demo video{box-shadow:6px 6px 0 #EB5443}}
 footer{background:#1B1B1B;color:#F3F0E8}
 footer .wrap{padding-top:36px;padding-bottom:40px;display:flex;flex-direction:column;gap:24px}
 footer .row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
@@ -166,7 +172,7 @@ footer .fine{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:
 <div class="hero">
 <div class="hero-grid">
 <div>
-<p class="eyebrow">AtmaOS · tool 11</p>
+<p class="eyebrow"><span style="text-transform:none">AtmaOS</span> · tool 11</p>
 <h1>The Arkwright Engine</h1>
 <p class="sub">A data demiurge.</p>
 <div class="rule"></div>
@@ -179,6 +185,13 @@ footer .fine{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:
 </header>
 
 <main id="main">
+
+<section class="demo" id="demo" aria-labelledby="demo-h">
+<div class="wrap">
+<div class="demo-head"><h2 id="demo-h">See it work.</h2><span>55-second demo</span></div>
+<video controls preload="none" playsinline poster="assets/video/arkwright-demo.jpg" width="1920" height="1080"><source src="assets/video/arkwright-demo.mp4" type="video/mp4">Your browser can't play this video. <a href="assets/video/arkwright-demo.mp4">Download the Arkwright demo</a>.</video>
+</div>
+</section>
 
 <section class="band alt" aria-labelledby="s1">
 <div class="wrap">
@@ -302,11 +315,11 @@ footer .fine{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:
 <div class="label"><span class="n">05</span>deeper</div>
 <h2 id="s5">Below the clicks.</h2>
 <p class="body">Those are the simpler possibilities. At a deeper level, Arkwright helps us understand the emotional context and the other-than-conscious factors that drive user behavior.</p>
-<p class="body">And it doesn't work alone. As an integral part of AtmaOS, Arkwright feeds two other Growth Bastards engines, telling them what to test, on whom, and where.</p>
+<p class="body">And it doesn't work alone. As an integral part of <span style="text-transform:none">AtmaOS</span>, Arkwright feeds two other Growth Bastards engines, telling them what to test, on whom, and where.</p>
 <div class="feeds">
 <div class="feed self"><span class="k">Tool 11</span><span class="t">The Arkwright Engine</span></div>
 <a class="feed" href="marketing-sucks.html#tools"><span class="k">Tool 01 · feeds</span><span class="t">The Creative Intelligence Engine</span></a>
-<a class="feed" href="markops-atlas.html"><span class="k">Tool 02 · feeds</span><span class="t">The MarkOps Atlas</span></a>
+<a class="feed" href="markops-atlas.html"><span class="k">Tool 02 · feeds</span><span class="t">The <span style="text-transform:none">MarkOps</span> Atlas</span></a>
 </div>
 </div>
 </section>

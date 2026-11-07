@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not Just Agents | Growth Bastards</title>
+<meta name="description" content="What AtmaOS is, what the fifteen specialists can do, and why a frontier model with agents cannot compete.">
+<link rel="canonical" href="https://www.growthbastards.com/not-just-agents.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Atma Degeyndt">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Growth Bastards">
+<meta property="og:url" content="https://www.growthbastards.com/not-just-agents.html">
+<meta property="og:title" content="This is not your kid’s AI">
+<meta property="og:description" content="What AtmaOS is, what the fifteen specialists can do, and why a frontier model with agents cannot compete.">
+<meta property="og:image" content="https://www.growthbastards.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.growthbastards.com/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1B1B1B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:#F3F0E8;color:#1B1B1B;-webkit-font-smoothing:antialiased;font-family:Jost,Futura,'Century Gothic',sans-serif}
+a{color:#386C71;text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:hover{color:#EB5443}
+a:focus-visible{outline:3px solid #F0B323;outline-offset:3px}
+::selection{background:#F0B323;color:#1B1B1B}
+.skip{position:absolute;left:-9999px;top:12px;background:#1B1B1B;color:#F3F0E8;padding:12px 18px;font:600 15px/1 Jost,sans-serif;text-decoration:none}
+.skip:focus{left:12px}
+.topbar{height:26px;background:#1B1B1B}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,10.4vw,112px);box-sizing:border-box}
+.col{max-width:720px}
+nav{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:32px}
+.brand{display:flex;align-items:center;gap:12px;color:#1B1B1B;text-decoration:none}
+.mark{position:relative;width:36px;height:28.32px;flex:none;isolation:isolate}
+.mark span{position:absolute}
+.word{font:600 15px/1 Jost,sans-serif;letter-spacing:0.42em;white-space:nowrap}
+.backlink{font:500 15px/1 Jost,sans-serif;color:#1B1B1B;text-decoration:none}
+.backlink:hover{color:#EB5443}
+
+.hero{padding:clamp(56px,8vw,96px) 0 72px}
+.eyebrow{margin:0 0 22px;font:500 13px/1.5 Jost,sans-serif;letter-spacing:0.28em;text-transform:uppercase}
+h1{margin:0;max-width:900px;font:700 clamp(46px,8.4vw,96px)/0.92 Jost,sans-serif;letter-spacing:-0.035em;text-wrap:balance}
+.rule{width:120px;height:8px;background:#EB5443;margin:36px 0 28px}
+.sub{margin:0;max-width:620px;font:500 clamp(20px,2.4vw,25px)/1.4 Jost,sans-serif;text-wrap:pretty}
+
+.band{border-top:8px solid #1B1B1B;padding:72px 0 80px}
+.band.alt{background:#E8E3D7}
+.band.dark{background:#1B1B1B;color:#F3F0E8}
+.label{margin:0 0 18px}
+.label span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#1B1B1B;color:#F3F0E8;font:600 13px/1 Jost,sans-serif}
+.dark .label span{background:#F3F0E8;color:#1B1B1B}
+h2{margin:0 0 32px;font:700 clamp(32px,4.8vw,52px)/1.04 Jost,sans-serif;letter-spacing:-0.03em;text-wrap:balance}
+.band p{margin:0 0 20px;font:400 19px/1.65 Jost,sans-serif;text-wrap:pretty}
+.band strong{font-weight:600}
+p.lead{font:500 clamp(21px,2.5vw,24px)/1.5 Jost,sans-serif}
+p.pull{margin:32px 0;padding-left:20px;border-left:6px solid #EB5443;font:600 clamp(22px,2.6vw,27px)/1.3 Jost,sans-serif;letter-spacing:-0.01em}
+p.lead-in{margin-top:36px;padding-top:22px;border-top:2px solid #1B1B1B}
+p.lead-in strong:first-child{display:block;margin-bottom:6px;font:700 clamp(22px,2.6vw,26px)/1.2 Jost,sans-serif;letter-spacing:-0.015em;color:#EB5443}
+p.closer{margin-top:36px;padding:22px 24px;background:#F0B323;font:600 clamp(20px,2.3vw,23px)/1.4 Jost,sans-serif;text-wrap:balance}
+ol.props{list-style:none;counter-reset:p;margin:32px 0;padding:0}
+ol.props li{counter-increment:p;position:relative;padding:20px 0 20px 64px;border-top:1px solid #B9B2A3;font:400 18px/1.6 Jost,sans-serif}
+ol.props li:last-child{border-bottom:1px solid #B9B2A3}
+ol.props li::before{content:counter(p,decimal-leading-zero);position:absolute;left:0;top:18px;font:700 28px/1 Jost,sans-serif;color:#EB5443}
+ol.props li p > strong:first-child{display:block;margin-bottom:4px;font-weight:700;font-size:20px;letter-spacing:-0.01em}
+.dark p.lead{font-weight:400;color:#D9D5CB}
+.dark p.lead:first-of-type{color:#F3F0E8}
+p.final{margin-top:44px;font:600 clamp(22px,2.7vw,28px)/1.3 Jost,sans-serif;text-wrap:balance}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:6px;margin-top:22px}
+.pair span{padding:20px 24px;font:600 clamp(20px,2.4vw,24px)/1.2 Jost,sans-serif}
+.pair span:first-child{background:#3A3636;color:#D9D5CB}
+.pair span:last-child{background:#EB5443;color:#1B1B1B}
+sup{line-height:0}
+sup a{text-decoration:none;font-weight:600;font-size:0.78em;padding:0 1px;color:#EB5443}
+.dark sup a{color:#F0B323}
+
+.sec{display:grid;grid-template-columns:minmax(0,720px) minmax(0,1fr);gap:0 48px}
+.sec .col{grid-column:1;grid-row:1}
+.art{grid-column:2;grid-row:1;justify-self:center;padding-top:52px;color:#1B1B1B}
+.dark .art{color:#F3F0E8}
+.ico{display:block;width:clamp(150px,16vw,200px);height:auto;overflow:visible}
+@media (max-width:900px){.sec{display:block}.art{display:flex;justify-content:flex-start;padding:0 0 20px}.ico{width:84px;margin:0}}
+.notes{padding:56px 0 72px;border-top:8px solid #1B1B1B}
+.notes h2{margin:0 0 18px;font:500 13px/1 Jost,sans-serif;letter-spacing:0.28em;text-transform:uppercase}
+.notes ol{margin:0;padding-left:24px;display:flex;flex-direction:column;gap:10px;font:400 14.5px/1.55 Jost,sans-serif;color:#3A3636;max-width:820px;overflow-wrap:anywhere}
+.notes li{scroll-margin-top:20px}
+.notes .back{text-decoration:none}
+footer{background:#1B1B1B;color:#F3F0E8}
+footer .wrap{padding-top:36px;padding-bottom:40px;display:flex;flex-direction:column;gap:24px}
+footer .row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .links{display:flex;gap:24px;flex-wrap:wrap;font:500 15px/1 Jost,sans-serif}
+footer .links a{color:#F3F0E8;text-decoration:none}
+footer .links a:hover{color:#F0B323}
+footer .fine{border-top:2px solid #5B5555;padding-top:20px;font:400 13px/1.5 Jost,sans-serif;color:#D9D5CB}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"></div>
+<header class="wrap">
+<nav><a href="/" class="brand"><span class="mark" aria-hidden="true"><span style="left:0;top:0;width:22.08px;height:22.08px;border-radius:50%;background:#EB5443"></span><span style="left:14.88px;top:7.2px;width:18.72px;height:18.72px;border-radius:50%;background:#3FB3BB;mix-blend-mode:multiply"></span><span style="left:4.8px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span><span style="left:11.04px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span><span style="left:19.2px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span><span style="left:24.48px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span><span style="left:6.24px;top:14.88px;width:8.16px;height:1.92px;background:#F3F0E8"></span><span style="left:21.12px;top:20.16px;width:6.24px;height:1.68px;background:#F3F0E8"></span></span><span class="word">GROWTH BASTARDS</span></a><a href="marketing-sucks.html" class="backlink">&larr; back to Marketing Sucks</a></nav>
+<div class="hero">
+<p class="eyebrow"><span style="text-transform:none">AtmaOS</span> · not just agents</p>
+<h1>This is not your kid’s AI</h1>
+<div class="rule"></div>
+<p class="sub">What <span style="text-transform:none">AtmaOS</span> is, what the fifteen specialists can do, and why a frontier model with agents cannot compete.</p>
+</div>
+</header>
+<main id="main">
+<section class="band " id="everybody-rents-the-same-genius-ours-remembers">
+<div class="wrap sec"><div class="art"><svg class="ico" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><rect x="40" y="30" width="62" height="78" fill="#3FB3BB"/><rect x="40" y="30" width="62" height="78" stroke="currentColor" stroke-width="4" fill="none"/>
+<line x1="54" y1="58" x2="90" y2="58" stroke="currentColor" stroke-width="4" fill="none"/><line x1="54" y1="72" x2="90" y2="72" stroke="currentColor" stroke-width="4" fill="none"/><line x1="54" y1="86" x2="80" y2="86" stroke="currentColor" stroke-width="4" fill="none"/>
+<circle cx="36" cy="38" r="24" fill="#EB5443" style="mix-blend-mode:multiply"/><circle cx="36" cy="38" r="24" stroke="currentColor" stroke-width="4" fill="none"/></svg></div><div class="col">
+<p class="label"><span>01</span></p>
+<h2>Everybody rents the same genius. Ours remembers.</h2>
+<p class="lead">Everybody draws on the same frontier models. Period.</p>
+<p>Imagine your AI agents as members of your team. Every Monday morning they show up as new hires. The model remembers nothing from Friday. What it knows about your work is whatever fits in today's context window, plus any notes someone built it to reread. Give it a task and it may do that task very well. Why you gave it the task, and who is waiting on it, it knows only if someone wrote that down and handed it back. It can pass work to another agent, but what gets passed is a message: an output, a summary, a status. The reasoning stays behind. No one on that team sees the whole picture, and no one can tell you whether the work is creating value.</p>
+<p>Now picture an <span style="text-transform:none">AtmaOS</span> team member. She’s at her desk on Monday morning. Her work is where she left it. The file on her desk is open to the page she stopped at on Friday. She remembers an argument from two months ago, who won it, and what it cost. She remembers that the client hates Garamond and neon colors, and why. Every small detail, intact. The model underneath her still forgets everything. <span style="text-transform:none">AtmaOS</span> does not. It keeps the record and hands it back to her every time she starts work. That is what it is to work inside <span style="text-transform:none">AtmaOS</span>. She can work with any AI model she wants. She is not tied to one, and she is not limited by one.</p>
+<p class="pull">Working with her is nothing like opening a chat window.</p>
+<p>Even with humans, what makes a company more than the sum of its people is what they share. Put fifteen brilliant people in a room with no shared memory and no record of what they do, and you have a cocktail party. The Growth Bastards don't drink, and they don't forget. They stay committed. They share. They get smarter with every assignment.</p>
+</div></div>
+</section>
+<section class="band alt" id="digital-monkeys-do-work-our-specialists-do-intelligence">
+<div class="wrap sec"><div class="art"><svg class="ico" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><rect x="10" y="20" width="22" height="22" stroke="currentColor" stroke-width="4" fill="none"/><rect x="10" y="50" width="22" height="22" stroke="currentColor" stroke-width="4" fill="none"/><rect x="10" y="80" width="22" height="22" stroke="currentColor" stroke-width="4" fill="none"/>
+<line x1="32" y1="31" x2="62" y2="61" stroke="currentColor" stroke-width="4" fill="none"/><line x1="32" y1="61" x2="62" y2="61" stroke="currentColor" stroke-width="4" fill="none"/><line x1="32" y1="91" x2="62" y2="61" stroke="currentColor" stroke-width="4" fill="none"/>
+<circle cx="84" cy="61" r="24" fill="#EB5443"/><circle cx="84" cy="61" r="24" stroke="currentColor" stroke-width="4" fill="none"/><polygon points="84,49 95,69 73,69" fill="#F0B323" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg></div><div class="col">
+<p class="label"><span>02</span></p>
+<h2>Digital monkeys do work. Our specialists do intelligence.</h2>
+<p>The word "agent" has been worn smooth. This year it means a model, a prompt, a set of tools, and whatever fits in the context window. HubSpot sells "autonomous digital workers" that live inside your CRM and bill you by the credit.<sup><a href="#n1" id="r1">1</a></sup> xAI's Grok Bot gives each bot a cloud computer and tells you to start it on work with "many small interface steps and little judgement."<sup><a href="#n2" id="r2">2</a></sup> Salesforce's Content Agent turns a prompt into assets.<sup><a href="#n3" id="r3">3</a></sup> These are real. They are useful. And under the branding they are all the same thing: take a task, run it inside a context window, hand back the output. What they learn doing it rarely outlives the task. They are monkeys. Laborers. They do work. Mindlessly.</p>
+<p>Our specialists run on the same models. What they do with them is different. They do intelligence. Here is what that means.</p>
+<ol class="props">
+<li><p><strong>They know their field, and they keep learning it.</strong> Bruce is Head of Product. He has a point of view on product that he learned from his mentors, who have decades of experience between them. He has read the academic research in his field, because he believes decisions should rest on science. And he listens, in real time, to the conversations happening across the internet about his craft. He is learning while you read this.</p></li>
+<li><p><strong>They remember their own work.</strong> Not the chat they happen to be in. Every assignment, every finding, every handoff, kept for as long as the agency exists.</p></li>
+<li><p><strong>They work like a good cross-functional team.</strong> Each one stays focused on their own field, but nothing is walled off, and when one of them has a question, they ask whoever knows<strong>.</strong> They hand work to each other with the reasoning attached. And they ask questions when they disagree.</p></li>
+<li><p><strong>They have a track record.</strong> What each one recommended. What was decided. What happened. There's a built-in level of accountability. This creates an environment in which it is very difficult to maintain a hallucination.</p></li>
+<li><p><strong>Most importantly, they work from the whole picture.</strong> They know the scope and depth of the project and what's at stake. Not because it fits in a model's head, but because the record holds it and hands it back every time they work. So their thinking reflects the whole, not just their part.</p></li>
+</ol>
+<p class="closer">A HubSpot agent can write a landing page. Grok Bots can update the CRM. Our specialist asks whether the page should exist at all and can show you why.<sup><a href="#n4" id="r4">4</a></sup></p>
+</div></div>
+</section>
+<section class="band " id="why-a-frontier-model-cannot-do-this-it-is-not-about-being-smart">
+<div class="wrap sec"><div class="art"><svg class="ico" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><rect x="22" y="22" width="60" height="60" stroke="currentColor" stroke-width="4" fill="none"/>
+<circle cx="38" cy="40" r="6" fill="#3FB3BB"/><circle cx="62" cy="40" r="6" fill="#3FB3BB"/><circle cx="50" cy="62" r="6" fill="#3FB3BB"/>
+<circle cx="96" cy="34" r="6" fill="#EB5443"/><circle cx="104" cy="58" r="6" fill="#EB5443"/><circle cx="92" cy="96" r="6" fill="#EB5443"/><circle cx="64" cy="104" r="6" fill="#EB5443"/><circle cx="30" cy="102" r="6" fill="#EB5443"/><circle cx="108" cy="84" r="6" fill="#EB5443"/></svg></div><div class="col">
+<p class="label"><span>03</span></p>
+<h2>Why a frontier model cannot do this.</h2>
+<p class="lead">Three limits. None of them small.</p>
+<p class="lead-in"><strong>The variables.</strong> A simple campaign has a thousand moving parts: audiences, offers, creative, channels, bids, pages, timing, the competitor who cut price on Tuesday. A complex one has four thousand. Fifty variables make 19,600 three-way interactions. Four thousand make more than ten billion.<sup><a href="#n5" id="r5">5</a></sup></p>
+<p>A language model computes none of that. It reads text and writes text. A million-token window is not a model of the problem. It is a long page, and the page does not hold. Independent tests this year gave frontier models the easiest job there is: find eight facts planted in a million tokens. The best model scored 74 percent. Others scored in the twenties and thirties.<sup><a href="#n6" id="r6">6</a></sup> Finding a fact is not reasoning about four thousand at once. No prompt fixes that. So I moved the math out of the model and into an engine built for joint inference. The team reads the output. Nobody improvises the numbers.</p>
+<p class="lead-in"><strong>The memory.</strong> ChatGPT's memory, by outside estimates, is about fifteen hundred words of plain text, pasted into the top of every new chat. Flat list. No categories. Updated by overwriting, with no history. When it fills, it compresses itself. You don't choose what goes. On the API it does not exist.<sup><a href="#n7" id="r7">7</a></sup> That is a notepad that loses its own pages.</p>
+<p><span style="text-transform:none">AtmaOS</span> keeps a record. Every fact about a client is labeled verified, asserted by the client, assumed by us, or unknown, and carries its source and version. Nothing is overwritten. The record keeps seven things apart that every other memory mashes together: what we saw, what we thought it meant, what we recommended, what we decided, what we did, what happened, what we learned. A lesson cannot become a rule until it passes a test. A failed campaign is not a bad month. It is experience, filed where the next decision will find it.<sup><a href="#n8" id="r8">8</a></sup></p>
+<p class="lead-in"><strong>The state.</strong> Yes, you can bolt a database onto API calls. Everyone does. Storage isn't the point. Swap the model vendor and nobody forgets anything. Permissions live in the database, not in a prompt a clever sentence can talk around. Every model call is checked, byte for byte, against the plan that authorized it. Every run carries a level: observe, analyze, or execute. A recommendation never spends a dollar.<sup><a href="#n9" id="r9">9</a></sup></p>
+<p class="lead-in"><strong>Then there's judgment. Could a big team build this? Sure.</strong> AI engineers and senior marketers, a year or more. It would still be missing the part I put in: twenty years of marketing, a background in psychology, neuroscience and narrative analysis, and a stubborn discipline about testing and Bayesian evidence. The code was never the hard part. The hard part was knowing what the record should refuse to hold.</p>
+</div></div>
+</section>
+<section class="band alt" id="what-the-field-is-selling-this-month-and-what-it-is-not">
+<div class="wrap sec"><div class="art"><svg class="ico" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><line x1="8" y1="84" x2="112" y2="84" stroke="currentColor" stroke-width="4" fill="none"/><circle cx="20" cy="96" r="8" stroke="currentColor" stroke-width="4" fill="none"/><circle cx="100" cy="96" r="8" stroke="currentColor" stroke-width="4" fill="none"/><circle cx="60" cy="96" r="8" stroke="currentColor" stroke-width="4" fill="none"/>
+<polygon points="22,78 34,56 46,78" fill="#F0B323" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="54,78 66,56 78,78" fill="#F0B323" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="86,78 98,56 110,78" fill="#F0B323" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+<line x1="12" y1="30" x2="36" y2="30" stroke="currentColor" stroke-width="4" fill="none"/><line x1="44" y1="30" x2="68" y2="30" stroke="currentColor" stroke-width="4" fill="none"/><line x1="76" y1="30" x2="100" y2="30" stroke="currentColor" stroke-width="4" fill="none"/><polyline points="94,22 104,30 94,38" stroke="currentColor" stroke-width="4" fill="none"/></svg></div><div class="col">
+<p class="label"><span>04</span></p>
+<h2>What the field is selling this month, and what it is not</h2>
+<p>I checked the market the week of this draft. A snapshot, not a verdict. HubSpot's Breeze agents are digital workers inside the CRM. A Customer Agent for support. A Prospecting Agent that watches for buying signals and drafts outreach. A Content Agent for pages and posts. About a cent a credit, and watching one prospect costs a hundred credits a month. Their memory is the CRM's knowledge base and an audit card. HubSpot's own partners warn that the agents "automate existing data problems."<sup><a href="#n10" id="r10">10</a></sup> Salesforce, June 3: a Content Agent that makes assets from a prompt and a Marketing Goals Agent that "automates campaign creation within budget limits."<sup><a href="#n11" id="r11">11</a></sup> Grok Bot, in beta since August: bots on a shared cloud computer, a "chief of staff" bot handing out the work, and a warning to keep anything that moves money or speaks in public behind a human.<sup><a href="#n12" id="r12">12</a></sup></p>
+<p>All of it is production. More assets, more outreach, more campaigns, faster and cheaper than people. Fine. Now notice what none of them has. No record of why. No mark on a fact that says verified, assumed or unknown. No statistics outside the model. No one whose job is to say the brief is wrong and have that survive. Nowhere for a lesson to live.</p>
+<p class="closer">They sell hands. Marketing is not a production contest. It is a decision problem. Decision problems are won by whoever knows the most, knows what they do not know, and remembers what happened last time.</p>
+</div></div>
+</section>
+<section class="band dark" id="what-this-means-for-you">
+<div class="wrap sec"><div class="art"><svg class="ico" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><circle cx="46" cy="56" r="32" fill="#EB5443"/><circle cx="76" cy="66" r="28" fill="#3FB3BB"/>
+<circle cx="46" cy="56" r="32" stroke="currentColor" stroke-width="4" fill="none"/><circle cx="76" cy="66" r="28" stroke="currentColor" stroke-width="4" fill="none"/><polygon points="60,98 72,76 84,98" fill="#F0B323" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg></div><div class="col">
+<p class="label"><span>05</span></p>
+<h2>What this means for you</h2>
+<p class="lead">Every AI agent on the market has a brilliant mind and a cheap memory. Its memory is a notepad that tears out its own pages. Plant eight facts in its million-token window and the best frontier model misses one in four; the others miss two in three. That’s eight facts. A complex campaign has four thousand moving variables. It doesn’t know why it was given the job, it never finds out whether the job worked, and nobody can tell you if it made you a dime. Wire fifty of them together and you get fifty monkeys in a row. Each one does its piece. None of them is thinking.</p>
+<p class="lead"><span style="text-transform:none">AtmaOS</span> specialists don’t forget. Every assignment, every argument, every result is on the record and handed back to them every time they work. The math runs in engines built for it, not in a model making it up. Every fact is marked verified, assumed or unknown. Every recommendation carries a track record. And one of them has the job of telling you the brief is wrong.</p>
+<p class="final">That isn’t a better agent. It’s a different kind of thing.<span class="pair"><span>Agents do marketing work.</span><span>We do marketing intelligence.</span></span></p>
+</div></div>
+</section>
+<section class="notes"><div class="wrap"><h2>Notes</h2><ol>
+<li id="n1">On The Fuze, "HubSpot Breeze AI Agents 2026," On The Fuze HubSpot Insights Blog, 2026, <a href="https://www.onthefuze.com/hubspot-insights-blog/hubspot-breeze-ai-agents-2026" target="_blank" rel="noopener">https://www.onthefuze.com/hubspot-insights-blog/hubspot-breeze-ai-agents-2026</a>. A HubSpot partner's guide, not HubSpot's own documentation. <a href="#r1" class="back" aria-label="Back to text">↩</a></li>
+<li id="n2">Davies Meyer, "Grok Bot: xAI's AI Teammates With Their Own Computer," AI Solutions blog, August 30, 2026, <a href="https://ai-solutions.daviesmeyer.com/en/blog/grok-bot-ki-teammates-xai" target="_blank" rel="noopener">https://ai-solutions.daviesmeyer.com/en/blog/grok-bot-ki-teammates-xai</a>. Grok Bot entered early beta on August 11, 2026. <a href="#r2" class="back" aria-label="Back to text">↩</a></li>
+<li id="n3">"Salesforce Launches AI Marketing Agents," Pulse, June 2026, reporting destinationCRM of June 3, 2026, <a href="https://www.pulse.bot/ai/news/salesforce-launches-ai-marketing-agents-e1c6f708-ffe7-4e9c-bc4a-d129b28c9d1c/" target="_blank" rel="noopener">https://www.pulse.bot/ai/news/salesforce-launches-ai-marketing-agents-e1c6f708-ffe7-4e9c-bc4a-d129b28c9d1c/</a>. <a href="#r3" class="back" aria-label="Back to text">↩</a></li>
+<li id="n4">The five properties above are the agency's own: <span style="text-transform:none">AtmaOS</span> Canonical Architecture and System Inventory v1.1, 30 October 2026, §I, "Core invariants," items 6 and 7, and §IV, "Constitutions and expert-knowledge construction" (the three streams of continuing professional development); <span style="text-transform:none">AtmaOS</span> repository, documents/AtmaOS_agency_agents.md, "Professional disagreement is a feature." <a href="#r4" class="back" aria-label="Back to text">↩</a></li>
+<li id="n5">Three-way combinations of n variables, n(n−1)(n−2)/6: 50 gives 19,600; 100 gives 161,700; 1,000 gives 166,167,000; 4,000 gives 10,658,668,000. The 50-variable figure is the one on growthbastards.com, §11, "the math." <a href="#r5" class="back" aria-label="Back to text">↩</a></li>
+<li id="n6">"The Context Window Lie: How Well AI Models Use 1M Tokens (2026)," Codingfleet, 2026, <a href="https://codingfleet.com/blog/context-window-lie-how-well-ai-models-use-1m-tokens-2026/," target="_blank" rel="noopener">https://codingfleet.com/blog/context-window-lie-how-well-ai-models-use-1m-tokens-2026/,</a> citing MRCR v2 eight-needle results at 512K to 1M tokens (GPT-5.5 74.0 percent, Claude Opus 4.7 32.2 percent, Gemini 3.1 Pro 26.3 percent) and NoLiMa (GPT-4.1 effective capacity about 16K). See also "LLM Context Window Comparison (2026)," Morph, July 1, 2026, <a href="https://morphllm.com/llm-context-window-comparison:" target="_blank" rel="noopener">https://morphllm.com/llm-context-window-comparison:</a> "A 1M-window model can start degrading at 50K tokens." <a href="#r6" class="back" aria-label="Back to text">↩</a></li>
+<li id="n7">"ChatGPT Memory: Complete Guide to How It Works (2026)," AI Memory, 2026, <a href="https://aimemory.pro/blog/chatgpt-memory-guide-2026" target="_blank" rel="noopener">https://aimemory.pro/blog/chatgpt-memory-guide-2026</a>. A vendor's guide; the figures (about 1,500 words total, roughly 100 words per entry, 15 to 30 entries) should be checked against OpenAI's Memory FAQ, <a href="https://help.openai.com/en/articles/8590148-memory-faq," target="_blank" rel="noopener">https://help.openai.com/en/articles/8590148-memory-faq,</a> before publication. <a href="#r7" class="back" aria-label="Back to text">↩</a></li>
+<li id="n8">Inventory v1.1, §I, invariants 10 and 11, and §VIII, "Evidence classes and lifecycle"; cx_as_marketing/documents/LEARN_Stage_Client_Intake_Blueprint_v0.1.docx, "The principles LEARN serves" (verified, asserted, assumed, unknown); growthbastards.com, §8, "the memory." <a href="#r8" class="back" aria-label="Back to text">↩</a></li>
+<li id="n9"><span style="text-transform:none">AtmaOS</span> repository, documents/AtmaOS_Tech_Stack_2026-11-05.md, §1, "Governance built into the core"; Inventory v1.1, §I, invariants 2, 6 and 9. <a href="#r9" class="back" aria-label="Back to text">↩</a></li>
+<li id="n10">On The Fuze, "HubSpot Breeze AI Agents 2026." Credit prices and allowances are the partner's figures as of 2026 and change with HubSpot's pricing. <a href="#r10" class="back" aria-label="Back to text">↩</a></li>
+<li id="n11">"Salesforce Launches AI Marketing Agents," Pulse, June 2026. <a href="#r11" class="back" aria-label="Back to text">↩</a></li>
+<li id="n12">Davies Meyer, "Grok Bot: xAI's AI Teammates With Their Own Computer." <a href="#r12" class="back" aria-label="Back to text">↩</a></li>
+</ol></div></section>
+</main>
+<footer><div class="wrap"><div class="row"><a href="/" class="brand" style="color:#F3F0E8"><span class="mark" aria-hidden="true"><span style="left:0;top:0;width:22.08px;height:22.08px;border-radius:50%;background:#EB5443"></span><span style="left:14.88px;top:7.2px;width:18.72px;height:18.72px;border-radius:50%;background:#3FB3BB;mix-blend-mode:multiply"></span><span style="left:4.8px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span><span style="left:11.04px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span><span style="left:19.2px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span><span style="left:24.48px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span><span style="left:6.24px;top:14.88px;width:8.16px;height:1.92px;background:#1B1B1B"></span><span style="left:21.12px;top:20.16px;width:6.24px;height:1.68px;background:#1B1B1B"></span></span><span class="word">GROWTH BASTARDS</span></a><div class="links"><a href="/">home</a><a href="marketing-sucks.html">marketing sucks</a><a href="tech-stack.html">tech stack</a><a href="/#hire">hire</a></div></div><div class="fine">© 2026 Growth Bastards</div></div></footer>
+</body>
+</html>
