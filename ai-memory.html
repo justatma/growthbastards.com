@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why AI Models Are So Limited | Growth Bastards</title>
+<meta name="description" content="How modern AI systems remember and forget: context windows, what happens when they overflow, and why summaries and RAG only create the illusion of memory.">
+<link rel="canonical" href="https://www.growthbastards.com/ai-memory.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Atma Degeyndt">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Growth Bastards">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://www.growthbastards.com/ai-memory.html">
+<meta property="og:title" content="Why AI models are so limited">
+<meta property="og:description" content="How modern AI systems remember and forget, and why their memory is never the whole story.">
+<meta property="og:image" content="https://www.growthbastards.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why AI models are so limited">
+<meta name="twitter:description" content="How modern AI systems remember and forget, and why their memory is never the whole story.">
+<meta name="twitter:image" content="https://www.growthbastards.com/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1B1B1B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap">
+<style>
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:#F3F0E8;color:#1B1B1B;-webkit-font-smoothing:antialiased;font-family:Jost,Futura,'Century Gothic',sans-serif}
+a{color:#386C71;text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{color:#EB5443}
+a:focus-visible{outline:3px solid #F0B323;outline-offset:3px}
+::selection{background:#F0B323;color:#1B1B1B}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.skip{position:absolute;left:-9999px;top:12px;z-index:100;background:#1B1B1B;color:#F3F0E8;padding:12px 18px;font:600 15px/1 Jost,sans-serif;text-decoration:none}
+.skip:focus{left:12px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:clamp(20px,10.4vw,112px);padding-right:clamp(20px,10.4vw,112px);box-sizing:border-box}
+.topbar{height:26px;background:#1B1B1B}
+nav.top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:32px}
+.brand{display:flex;align-items:center;gap:12px;color:#1B1B1B;text-decoration:none}
+.mark{position:relative;width:36px;height:28.32px;flex:none;isolation:isolate}
+.mark span{position:absolute}
+.word{font:600 15px/1 Jost,sans-serif;letter-spacing:0.42em;white-space:nowrap}
+.back{font:500 15px/1 Jost,sans-serif;color:#1B1B1B;text-decoration:none}
+.back:hover{color:#EB5443}
+
+.hero{padding:clamp(48px,7vw,80px) 0 72px}
+.eyebrow{font:500 13px/1.5 Jost,sans-serif;letter-spacing:0.28em;text-transform:uppercase;margin:0 0 22px}
+h1{margin:0;font:700 clamp(44px,7.4vw,84px)/0.94 Jost,sans-serif;letter-spacing:-0.035em;max-width:820px;text-wrap:balance}
+.sub{margin:18px 0 0;font:500 clamp(22px,2.78vw,30px)/1.2 Jost,sans-serif;color:#EB5443}
+.rule{width:120px;height:8px;background:#EB5443;margin:36px 0 28px}
+.lede{margin:0;max-width:620px;font:400 19px/1.55 Jost,sans-serif;text-wrap:pretty}
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0;margin-top:36px;border-top:3px solid #1B1B1B;border-left:3px solid #1B1B1B}
+.layer{border-right:3px solid #1B1B1B;border-bottom:3px solid #1B1B1B;padding:24px 24px 26px;display:flex;gap:18px;align-items:flex-start;color:#1B1B1B;text-decoration:none;transition:background 120ms}
+.layer:hover{background:#F0B323;color:#1B1B1B}
+.layer .n{font:700 34px/1 Jost,sans-serif;color:#EB5443;flex:none}
+.layer h2{margin:0 0 6px;font:700 22px/1.15 Jost,sans-serif;letter-spacing:-0.015em}
+.layer p{margin:0;font:400 16px/1.45 Jost,sans-serif}
+.layer .go{display:block;margin-top:10px;font:500 13px/1 Jost,sans-serif;letter-spacing:0.16em;text-transform:uppercase}
+
+section.band{border-top:8px solid #1B1B1B;padding:72px 0 80px;scroll-margin-top:0}
+section.alt{background:#E8E3D7}
+section.dark{background:#1B1B1B;color:#F3F0E8}
+.label{display:flex;align-items:center;gap:14px;margin-bottom:28px;font:500 13px/1 Jost,sans-serif;letter-spacing:0.28em;text-transform:uppercase}
+.label .n{width:30px;height:30px;border-radius:50%;background:#1B1B1B;color:#F3F0E8;display:flex;align-items:center;justify-content:center;font:600 13px/1 Jost,sans-serif;letter-spacing:0;flex:none}
+.dark .label .n{background:#F3F0E8;color:#1B1B1B}
+h2.big{margin:0 0 18px;font:700 clamp(36px,5.4vw,58px)/1.02 Jost,sans-serif;letter-spacing:-0.03em;text-wrap:balance;max-width:820px}
+h3.sec{margin:64px 0 8px;font:700 clamp(26px,3.4vw,36px)/1.08 Jost,sans-serif;letter-spacing:-0.025em;text-wrap:balance}
+.kick{margin:0 0 6px;font:500 13px/1 Jost,sans-serif;letter-spacing:0.28em;text-transform:uppercase;color:#EB5443}
+.body{margin:0;max-width:680px;font:400 19px/1.55 Jost,sans-serif;text-wrap:pretty}
+.body + .body{margin-top:18px}
+.body strong,.card strong{font-weight:600}
+sup a{font-weight:600;text-decoration:none;color:#EB5443;padding:0 1px}
+.dark sup a{color:#F0B323}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:0;margin-top:28px;border-top:3px solid #1B1B1B;border-left:3px solid #1B1B1B}
+.card{border-right:3px solid #1B1B1B;border-bottom:3px solid #1B1B1B;padding:24px 24px 26px;display:flex;flex-direction:column;gap:12px;background:#F3F0E8}
+.card .k{font:500 11px/1.3 Jost,sans-serif;letter-spacing:0.2em;text-transform:uppercase;color:#5B5555}
+.card h4{margin:0;font:700 clamp(21px,2.3vw,24px)/1.12 Jost,sans-serif;letter-spacing:-0.02em}
+.card p{margin:0;font:400 16px/1.5 Jost,sans-serif;text-wrap:pretty}
+.card.red{background:#EB5443}
+.card.red .k{color:#1B1B1B}
+.dark .cards{border-color:#F3F0E8}
+.dark .card{background:transparent;border-color:#F3F0E8}
+.dark .card .k{color:#F0B323}
+.dark .card.red{background:#EB5443;color:#1B1B1B}
+.dark .card.red .k{color:#1B1B1B}
+
+.limits{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px;margin-top:28px}
+.limit{border:3px solid #1B1B1B;background:#F3F0E8;display:flex;flex-direction:column}
+.limit .txt{padding:24px 24px 22px;display:flex;flex-direction:column;gap:10px}
+.limit .num{font:700 34px/1 Jost,sans-serif;color:#EB5443}
+.limit h4{margin:0;font:700 clamp(21px,2.3vw,24px)/1.12 Jost,sans-serif;letter-spacing:-0.02em}
+.limit p{margin:0;font:400 16px/1.5 Jost,sans-serif;text-wrap:pretty}
+.limit figure{margin:auto 0 0;border-top:3px solid #1B1B1B;padding:20px 24px 16px;background:#FFFFFF}
+.limit svg{display:block;width:100%;height:auto}
+.limit figcaption{margin-top:10px;font:400 13px/1.4 Jost,sans-serif;color:#5B5555}
+svg text{font-family:Jost,sans-serif}
+
+.sequence{display:flex;flex-wrap:wrap;margin-top:28px;border:3px solid #1B1B1B}
+.sequence div{flex:1 1 180px;padding:18px 20px;font:700 clamp(20px,2.4vw,26px)/1.1 Jost,sans-serif;letter-spacing:-0.02em;border-right:3px solid #1B1B1B}
+.sequence div:last-child{border-right:0}
+.sequence span{display:block;margin-bottom:8px;font:500 11px/1 Jost,sans-serif;letter-spacing:0.2em;text-transform:uppercase}
+.sequence .s1{background:#F3F0E8}.sequence .s2{background:#F0B323}.sequence .s3{background:#EB5443}
+
+.flow{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:0;counter-reset:f;border-top:3px solid #F3F0E8;border-left:3px solid #F3F0E8}
+.flow li{counter-increment:f;border-right:3px solid #F3F0E8;border-bottom:3px solid #F3F0E8;padding:20px 18px 22px;font:400 16px/1.45 Jost,sans-serif;text-wrap:pretty}
+.flow li::before{content:"0" counter(f);display:block;margin-bottom:10px;font:700 26px/1 Jost,sans-serif;color:#F0B323}
+.flow li em{font-style:normal;color:#F0B323}
+.callout{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:baseline;border:3px solid #F3F0E8;padding:22px 24px}
+.callout b{font:700 clamp(30px,4vw,44px)/1 Jost,sans-serif;letter-spacing:-0.03em;color:#F0B323}
+.callout p{margin:0;flex:1 1 320px;font:400 17px/1.5 Jost,sans-serif;text-wrap:pretty}
+
+.squash{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px;border:3px solid #F3F0E8;padding:22px 24px}
+.squash .col{display:flex;flex-direction:column;gap:6px}
+.squash .k{font:500 11px/1.3 Jost,sans-serif;letter-spacing:0.2em;text-transform:uppercase;color:#F0B323;margin-bottom:6px}
+.squash .msg{height:12px;background:#F3F0E8}
+.squash .msg.s{width:70%}.squash .msg.m{width:88%}.squash .msg.l{width:100%}
+.squash .sum{height:34px;background:#F0B323;display:flex;align-items:center;padding:0 12px;color:#1B1B1B;font:600 13px/1 Jost,sans-serif;letter-spacing:0.12em;text-transform:uppercase}
+.squash .gone{opacity:.28}
+.squash .arrow{font:700 28px/1 Jost,sans-serif;color:#EB5443}
+@media (max-width:560px){.squash{grid-template-columns:1fr}.squash .arrow{transform:rotate(90deg);justify-self:center}}
+
+.quote{background:#EB5443;border-top:8px solid #1B1B1B;padding:72px 0 80px}
+.quote blockquote{margin:0;max-width:880px;font:700 clamp(34px,5.4vw,60px)/1.02 Jost,sans-serif;letter-spacing:-0.035em;text-wrap:balance}
+.quote blockquote span{display:block;margin-top:14px;color:#F3F0E8}
+.quote .then{margin:40px 0 0;max-width:640px;font:500 clamp(20px,2.4vw,24px)/1.35 Jost,sans-serif;text-wrap:pretty}
+.quote .then a{color:#1B1B1B;font-weight:600}
+.quote .then a:hover{color:#F3F0E8}
+
+.cta-row{display:flex;align-items:center;gap:16px 28px;flex-wrap:wrap}
+.cta-row span{font:500 clamp(22px,2.78vw,30px)/1.2 Jost,sans-serif}
+.btn{display:inline-flex;align-items:center;gap:12px;background:#EB5443;color:#1B1B1B;border:3px solid #EB5443;padding:18px clamp(18px,4vw,28px);font:600 19px/1.15 Jost,sans-serif;text-decoration:none;max-width:100%;box-sizing:border-box;transition:transform 120ms cubic-bezier(.2,0,0,1),box-shadow 120ms cubic-bezier(.2,0,0,1)}
+.btn:hover{color:#1B1B1B;transform:translate(-3px,-3px);box-shadow:3px 3px 0 #1B1B1B}
+.btn i{width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #1B1B1B}
+
+.notes{border-top:2px solid #D9D5CB;margin-top:56px;padding-top:24px}
+.notes h2{margin:0 0 14px;font:500 13px/1 Jost,sans-serif;letter-spacing:0.28em;text-transform:uppercase}
+.notes ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;font:400 15px/1.5 Jost,sans-serif;color:#3A3636;max-width:760px}
+.notes li{scroll-margin-top:20px}
+
+footer{background:#1B1B1B;color:#F3F0E8}
+footer .wrap{padding-top:36px;padding-bottom:40px;display:flex;flex-direction:column;gap:24px}
+footer .row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .links{display:flex;gap:24px;flex-wrap:wrap;font:500 15px/1 Jost,sans-serif}
+footer .links a{color:#F3F0E8;text-decoration:none}
+footer .links a:hover{color:#F0B323}
+footer .fine{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;border-top:2px solid #5B5555;padding-top:20px;font:400 13px/1.5 Jost,sans-serif;color:#D9D5CB}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+<div class="topbar"></div>
+<div class="wrap">
+<nav class="top">
+<a href="/" class="brand"><span class="mark" aria-hidden="true">
+<span style="left:0;top:0;width:22.08px;height:22.08px;border-radius:50%;background:#EB5443"></span>
+<span style="left:14.88px;top:7.2px;width:18.72px;height:18.72px;border-radius:50%;background:#3FB3BB;mix-blend-mode:multiply"></span>
+<span style="left:4.8px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:11.04px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:19.2px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:24.48px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:6.24px;top:14.88px;width:8.16px;height:1.92px;background:#F3F0E8"></span>
+<span style="left:21.12px;top:20.16px;width:6.24px;height:1.68px;background:#F3F0E8"></span>
+</span><span class="word">GROWTH BASTARDS</span></a>
+<a href="marketing-sucks.html#ceiling" class="back">&larr; back to better than AI</a>
+</nav>
+<div class="hero">
+<p class="eyebrow">Field notes · AI memory</p>
+<h1>Why AI models are so limited.</h1>
+<p class="sub">How modern AI systems remember and forget.</p>
+<div class="rule"></div>
+<p class="lede">It helps to separate the technology into two distinct layers. Each one forgets in its own way.</p>
+<div class="layers">
+<a class="layer" href="#model"><span class="n">1</span><div><h2>The core AI model</h2><p>The architecture itself. What it can hold in mind at one time.</p><span class="go">Part 1 ↓</span></div></a>
+<a class="layer" href="#app"><span class="n">2</span><div><h2>The application layer</h2><p>The software wrapper, like a browser or desktop app. How it fakes a longer memory.</p><span class="go">Part 2 ↓</span></div></a>
+</div>
+</div>
+</div>
+</header>
+
+<main id="main">
+
+<section class="band alt" id="model" aria-labelledby="p1">
+<div class="wrap">
+<div class="label"><span class="n">1</span>the core model</div>
+<h2 class="big" id="p1">Context windows: the core model's short-term mind.</h2>
+<p class="body">The <strong>context window</strong> is the most text a model can process in a single interaction. It is measured in tokens; one token is about three quarters of a word.</p>
+<div class="cards">
+<div class="card"><span class="k">The analogy</span><h4>It works like RAM</h4><p>The context window is working memory. Every time you hit Enter, the entire conversation (your words, its replies, the full history) is bundled up and sent again. Between prompts, the model remembers nothing.</p></div>
+<div class="card"><span class="k">The mechanism</span><h4>Self-attention</h4><p>Frontier models are built on an architecture called the Transformer. It relies on self-attention, which maps the mathematical relationship between every token in the context window and every other token.<sup><a href="#n1" id="r1" aria-label="Note 1">1</a></sup></p></div>
+</div>
+
+<p class="kick" style="margin-top:64px">The limits</p>
+<h3 class="sec" style="margin-top:0">Huge windows. Steep limits.</h3>
+<p class="body">Frontier models now advertise windows of 128,000 tokens, and some reach one or two million. Size doesn't solve two problems.</p>
+<div class="limits">
+<div class="limit">
+<div class="txt"><span class="num">01</span><h4>Computational cost</h4><p>Standard self-attention scales quadratically: O(N²). Double the window and you quadruple the compute. Latency rises. Infrastructure costs climb.</p></div>
+<figure>
+<svg viewBox="0 0 320 150" role="img" aria-labelledby="sq-t"><title id="sq-t">A window of N tokens needs N squared comparisons. Doubling the window to 2N needs four times as many.</title>
+<g fill="#1B1B1B"><rect x="20" y="70" width="60" height="60"/></g>
+<text x="50" y="58" text-anchor="middle" font-size="13" font-weight="600" fill="#1B1B1B">N tokens</text>
+<text x="50" y="146" text-anchor="middle" font-size="12" fill="#5B5555">1× compute</text>
+<g fill="none" stroke="#1B1B1B" stroke-width="1"><rect x="170" y="10" width="120" height="120"/><line x1="230" y1="10" x2="230" y2="130"/><line x1="170" y1="70" x2="290" y2="70"/></g>
+<rect x="170" y="10" width="60" height="60" fill="#1B1B1B"/><rect x="230" y="10" width="60" height="60" fill="#EB5443"/><rect x="170" y="70" width="60" height="60" fill="#EB5443"/><rect x="230" y="70" width="60" height="60" fill="#EB5443"/>
+<text x="110" y="104" text-anchor="middle" font-size="22" font-weight="700" fill="#EB5443">→</text>
+<text x="230" y="146" text-anchor="middle" font-size="12" fill="#5B5555">2N tokens · 4× compute</text>
+</svg>
+<figcaption>Every token is compared with every other token.</figcaption>
+</figure>
+</div>
+<div class="limit">
+<div class="txt"><span class="num">02</span><h4>The middle goes soft</h4><p>A model may accept 1,000,000 tokens, but that doesn't mean it reads them all with equal clarity. Studies show models retrieve information well from the very beginning or the very end of a long prompt. Accuracy drops significantly when the crucial information is buried in the middle.<sup><a href="#n2" id="r2" aria-label="Note 2">2</a></sup></p></div>
+<figure>
+<svg viewBox="0 0 320 150" role="img" aria-labelledby="u-t"><title id="u-t">Recall is high for information at the start and end of the prompt and dips in the middle.</title>
+<line x1="30" y1="120" x2="300" y2="120" stroke="#1B1B1B" stroke-width="2"/>
+<line x1="30" y1="14" x2="30" y2="120" stroke="#1B1B1B" stroke-width="2"/>
+<path d="M36 26 C 90 104, 240 104, 294 22" fill="none" stroke="#EB5443" stroke-width="4" stroke-linecap="round"/>
+<rect x="128" y="68" width="74" height="22" fill="#F0B323"/>
+<text x="165" y="83" text-anchor="middle" font-size="12" font-weight="600" fill="#1B1B1B">lost here</text>
+<text x="36" y="138" font-size="12" fill="#5B5555">start</text>
+<text x="165" y="138" text-anchor="middle" font-size="12" fill="#5B5555">middle of the prompt</text>
+<text x="294" y="138" text-anchor="end" font-size="12" fill="#5B5555">end</text>
+<text x="22" y="20" text-anchor="end" font-size="11" fill="#5B5555" transform="rotate(-90 22 20)">recall</text>
+</svg>
+<figcaption>The shape of the effect, drawn for illustration.</figcaption>
+</figure>
+</div>
+</div>
+
+<p class="kick" style="margin-top:64px">Over the limit</p>
+<h3 class="sec" style="margin-top:0">What happens when you go past it?</h3>
+<p class="body">The model can't absorb any more, so the system has to drop data. The failures are specific.</p>
+<div class="cards">
+<div class="card"><span class="k">The cliff</span><h4>Hard truncation</h4><p>The oldest messages are deleted from what gets sent to the model.</p></div>
+<div class="card"><span class="k">The drift</span><h4>Loss of early instructions</h4><p>The rules you set at the start of the conversation get pushed out. Formatting slips. The persona shifts. The objective fades.</p></div>
+<div class="card red"><span class="k">The invention</span><h4>Contradictions and hallucinations</h4><p>Early facts fall away. The model contradicts itself. It fills in the blanks by making things up.</p></div>
+</div>
+<div class="sequence" aria-label="The order things fail in">
+<div class="s1"><span>first</span>The format.</div>
+<div class="s2"><span>then</span>The voice.</div>
+<div class="s3"><span>then</span>The goal.</div>
+</div>
+</div>
+</section>
+
+<section class="band dark" id="app" aria-labelledby="p2">
+<div class="wrap">
+<div class="label"><span class="n">2</span>the application layer</div>
+<h2 class="big" id="p2">How browser and desktop apps fake a memory.</h2>
+<p class="body">Context windows are expensive and finite. So consumer apps, like the browser and desktop versions, use workarounds that create the illusion of persistent memory. They keep track of you in two main ways.</p>
+
+<p class="kick" style="margin-top:56px;color:#F0B323">Workaround 1</p>
+<h3 class="sec" style="margin-top:0">Rolling windows: summarize and delete.</h3>
+<p class="body">When a chat gets too long, the app quietly asks a smaller, faster model to summarize the earliest part. Then it deletes the original messages and puts the summary at the top.</p>
+<div class="squash" role="img" aria-label="Many full messages are replaced by one short summary.">
+<div class="col"><span class="k">Before</span><div class="msg l"></div><div class="msg m"></div><div class="msg l"></div><div class="msg s"></div><div class="msg m"></div><div class="msg l"></div></div>
+<span class="arrow" aria-hidden="true">→</span>
+<div class="col"><span class="k">After</span><div class="sum">summary</div><div class="msg m gone"></div><div class="msg s gone"></div><div class="msg l"></div></div>
+</div>
+<div class="cards">
+<div class="card red"><span class="k">Failure mode</span><h4>A game of telephone</h4><p>Granular details go. Nuance goes. Code snippets go. Names go. The model ends up reacting to the cliff notes, not the complete record.</p></div>
+</div>
+
+<p class="kick" style="margin-top:64px;color:#F0B323">Workaround 2</p>
+<h3 class="sec" style="margin-top:0">Vector databases and RAG.</h3>
+<p class="body">When an app says it remembers you across separate chats (your job, your birth year, your preferences), it uses retrieval-augmented generation, or RAG. It draws on a small database it keeps about you.</p>
+<ol class="flow">
+<li>You state a fact: <em>“I work as a bartender.”</em></li>
+<li>The app decides it's a lasting preference and pulls the fact out.</li>
+<li>It saves the fact as a mathematical embedding in a vector database on a server.</li>
+<li>Tomorrow, in a new chat, the app searches that database for relevant facts.</li>
+<li>It silently adds them to the hidden instructions of your new message.</li>
+</ol>
+<div class="callout"><b>A few megabytes.</b><p>These memory stores don't hold millions of words per user. They hold a few hundred explicit memory slots: a few megabytes of text, at most.</p></div>
+
+<p class="kick" style="margin-top:56px;color:#F0B323">How RAG memory fails</p>
+<div class="cards" style="margin-top:14px">
+<div class="card"><span class="k">Retrieval dilution</span><h4>The wrong memory wins</h4><p>Conflicting memories compete. The system pulls the wrong background and carries on from the wrong information.</p></div>
+<div class="card"><span class="k">Stale facts</span><h4>Out of sync with reality</h4><p>Life changes. The old memory isn't deleted or overwritten. The AI stays anchored to outdated data, and its answers are confident but wrong.</p></div>
+<div class="card"><span class="k">Fragmentation</span><h4>Facts without the story</h4><p>Memories arrive as isolated facts, not a continuous narrative. The AI knows what you prefer, but not why, or how that preference came about.</p></div>
+</div>
+</div>
+</section>
+
+<section class="quote" aria-labelledby="q">
+<div class="wrap">
+<p class="eyebrow" id="q">So what is memory here?</p>
+<blockquote>Memory is a scattershot of what you have told the model. <span>It is never the whole story.</span></blockquote>
+<p class="then">Your marketing is the whole story: years of customers, campaigns and results. That's why I built AtmaOS. <a href="marketing-sucks.html#ceiling">See how it works →</a></p>
+</div>
+</section>
+
+<section class="band" aria-labelledby="cta">
+<div class="wrap">
+<h2 class="big" id="cta" style="font-size:clamp(32px,4.6vw,50px)">Need a team that remembers?</h2>
+<div class="rule"></div>
+<div class="cta-row"><span>Let's talk!</span><a class="btn" href="https://schedule.atma.marketing/" target="_blank" rel="noopener">Find a time here<i></i></a></div>
+<div class="notes">
+<h2>Notes</h2>
+<ol>
+<li id="n1">Ashish Vaswani et al., “Attention Is All You Need,” in <em>Advances in Neural Information Processing Systems 30</em> (2017). <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">arxiv.org/abs/1706.03762</a> <a href="#r1" aria-label="Back to text">↩</a></li>
+<li id="n2">Nelson F. Liu et al., “Lost in the Middle: How Language Models Use Long Contexts,” <em>Transactions of the Association for Computational Linguistics</em> 12 (2024): 157–73. <a href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener">arxiv.org/abs/2307.03172</a> <a href="#r2" aria-label="Back to text">↩</a></li>
+</ol>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<div class="row">
+<a href="/" class="brand" style="color:#F3F0E8"><span class="mark" aria-hidden="true">
+<span style="left:0;top:0;width:22.08px;height:22.08px;border-radius:50%;background:#EB5443"></span>
+<span style="left:14.88px;top:7.2px;width:18.72px;height:18.72px;border-radius:50%;background:#3FB3BB;mix-blend-mode:multiply"></span>
+<span style="left:4.8px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:11.04px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:19.2px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:24.48px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#1B1B1B"></span>
+<span style="left:6.24px;top:14.88px;width:8.16px;height:1.92px;background:#1B1B1B"></span>
+<span style="left:21.12px;top:20.16px;width:6.24px;height:1.68px;background:#1B1B1B"></span>
+</span><span class="word">GROWTH BASTARDS</span></a>
+<div class="links">
+<a href="/">home</a>
+<a href="marketing-sucks.html">marketing sucks</a>
+<a href="tech-stack.html">tech stack</a>
+<a href="/#hire">hire</a>
+</div>
+</div>
+<div class="fine">
+<span style="max-width:620px">Growth Bastards is an agentic agency. Atma is human; the specialist team is AI: built, directed, and answered for by him.</span>
+<span>© 2026 Growth Bastards</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
