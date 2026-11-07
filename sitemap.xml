@@ -1,43 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.growthbastards.com/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://growthbastards.com/</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.growthbastards.com/marketing-sucks.html</loc>
-    <lastmod>2026-11-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.growthbastards.com/tech-stack.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>https://growthbastards.com/tech-stack.html</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.growthbastards.com/arkwright.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://growthbastards.com/arkwright.html</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.growthbastards.com/markops-atlas.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://growthbastards.com/markops-atlas.html</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.growthbastards.com/ai-memory.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <loc>https://growthbastards.com/ai-memory.html</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.growthbastards.com/not-just-agents.html</loc>
+    <loc>https://growthbastards.com/not-just-agents.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

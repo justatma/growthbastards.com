@@ -66,6 +66,8 @@ jobs:
             **/.git*/**
             **/.DS_Store
             .gitignore
+            .htaccess
+            **/.htaccess
             README.md
             Documentation/**
             documents/**
@@ -89,6 +91,8 @@ jobs:
             **/.git*/**
             **/.DS_Store
             .gitignore
+            .htaccess
+            **/.htaccess
             README.md
             Documentation/**
             documents/**
