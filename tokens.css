@@ -2,20 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital@0;1&display=swap');
 :root {
   /* color */
-  --paper: #F3F0E8;
-  --paper-2: #E8E3D7;
-  --sheet: #FAF8F2;
-  --ink: #1B1B1B;
-  --ink-muted: #5B5555;
-  --paper-muted: #D9D5CB;
-  --ink-line: #3A3636;
+  --paper: #EDF1EE;
+  --paper-2: #E4E8E6;
+  --sheet: #F7F9F7;
+  --ink: #161D1A;
+  --ink-muted: #505755;
+  --paper-muted: #D2D9D5;
+  --ink-line: #333A38;
   --red: #EB5443;
   --teal: #3FB3BB;
   --yellow: #F0B323;
   --deep-teal: #386C71;
   --oxblood: #6E221E;
   --white: #FFFFFF;
-  --grid-line: rgba(27, 27, 27, 0.05);
+  --grid-line: rgba(22, 29, 26, 0.05);
   /* spacing */
   --space-1: 4px;
   --space-2: 8px;
@@ -34,7 +34,7 @@
   --radius-pill: 999px;
   --radius-circle: 50%;
   /* shadow */
-  --shadow-press: 3px 3px 0 #1B1B1B;
+  --shadow-press: 3px 3px 0 #161D1A;
   --shadow-press-on-ink: 3px 3px 0 #F0B323;
   /* rule */
   --rule-band: 26px;
