@@ -14,7 +14,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap">
 <style>
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html:focus-within{scroll-behavior:smooth}
 body{margin:0;background:#EDF1EE;color:#161D1A;-webkit-font-smoothing:antialiased}
 a{color:#386C71;text-decoration-thickness:2px;text-underline-offset:3px}
 a:hover{color:#EB5443}
@@ -23,9 +24,10 @@ a:focus-visible,button:focus-visible{outline:3px solid currentColor;outline-offs
 section[id]{scroll-margin-top:12px}
 .skip{position:absolute;left:-9999px;top:12px;z-index:100;background:#161D1A;color:#EDF1EE;padding:12px 18px;font:600 15px/1 Jost,sans-serif;text-decoration:none}
 .skip:focus{left:12px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*{transition:none!important}}
 .btn:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 #161D1A}
 </style>
+<!-- unified-footer-head:start --><link rel="stylesheet" href="/footer.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,400&family=Jost:wght@400;500&display=swap"><style>.af{font:initial}</style><!-- unified-footer-head:end -->
 </head>
 <body>
 <div style="height:26px;background:#161D1A"></div>
@@ -40,5 +42,55 @@ section[id]{scroll-margin-top:12px}
 <p style="position:relative;margin:0;max-width:520px;font:400 19px/1.5 Jost,sans-serif">The page you’re looking for isn’t here. The team is, though.</p>
 <a class="btn" href="/" style="position:relative;display:inline-flex;align-items:center;gap:12px;margin-top:32px;background:#161D1A;color:#EDF1EE;border:3px solid #161D1A;padding:18px 28px;font:600 19px/1.15 Jost,sans-serif;text-decoration:none;transition:transform 120ms cubic-bezier(.2,0,0,1),box-shadow 120ms cubic-bezier(.2,0,0,1)">Back to Growth Bastards</a>
 </main>
+<!-- unified-footer:start -->
+<!-- Unified footer: growthbastards.com. Needs footer.css. Fonts this site must load: see README. -->
+<style>
+.af{--af-bg:#EDF1EE;--af-ink:#161D1A;--af-muted:#505755;--af-rule:#161D1A;--af-bar:#3FB3BB;--af-hi:#F0B323;
+--af-head-color:#386C71;--af-note-color:#386C71;--af-hover:#386C71;--af-mail:#386C71;
+--af-link:400 19px/1.35 Jost, sans-serif;--af-head:500 16px/1.3 Jost, sans-serif;--af-head-case:none;--af-head-track:normal;
+--af-note:italic 400 16px/1.35 'IBM Plex Serif', serif;--af-quote:italic 400 20px/1.45 'IBM Plex Serif', serif;--af-small:400 16px/1.5 Jost, sans-serif;--af-cta:500 19px/1.3 Jost, sans-serif}
+</style>
+<footer class="af">
+  <div class="af-wrap">
+  <div class="af-grid">
+    <figure class="af-quote">
+      <blockquote>“He is a generational talent.”</blockquote>
+      <figcaption>His mom</figcaption>
+    </figure>
+    <nav class="af-col work" aria-label="Work">
+      <p class="af-head">Work</p>
+      <ul>
+      <li aria-current="page">Marketing expert and AI systems engineer <span class="af-note"><span class="af-dot"></span>you are here</span></li>
+      <li><a href="https://atma.marketing/evidence/">The marketing tech I built</a></li>
+      <li><a href="https://portfolio.atma.marketing/">Selected work</a></li>
+      </ul>
+    </nav>
+    <nav class="af-col writing" aria-label="Writing">
+      <p class="af-head">Writing</p>
+      <ul>
+      <li><a href="https://viceandvariance.com">Marketing undressed: a blog</a></li>
+      <li><a href="https://zerotoamillion.marketing/">The science of early-stage marketing <span class="af-note">January 2027</span></a></li>
+      <li><a href="https://startupgenius.io">Engineering the founder mindset <span class="af-note">on Amazon</span></a></li>
+      <li><a href="https://viceandvariance.com/bayesian-marketing.html">The most valuable statistical tool <span class="af-note">free e-book</span></a></li>
+      </ul>
+    </nav>
+    <nav class="af-col exp" aria-label="Experience">
+      <p class="af-head">Experience</p>
+      <ul>
+      <li><a href="https://resume.atma.marketing/">My resume</a></li>
+      <li><a href="https://www.linkedin.com/in/askatma" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://skills.atma.marketing">My tech stack</a></li>
+      <li><a href="https://github.com/justatma" target="_blank" rel="noopener">My repo</a></li>
+      </ul>
+    </nav>
+    <a class="af-cta" href="https://schedule.atma.marketing" target="_blank" rel="noopener"><span class="af-cta-text">Let’s meet</span><span aria-hidden="true">→</span><svg viewBox="0 0 30 30" fill="none" aria-hidden="true" focusable="false"><rect x="4" y="7" width="22" height="19" rx="0" stroke="currentColor" stroke-width="1.75"/><path d="M4 12.5H26" stroke="currentColor" stroke-width="1.75"/><path d="M10 4.5V9.5M20 4.5V9.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"/><rect x="7.75" y="15.5" width="3.5" height="3.5" rx="0" fill="currentColor"/><rect x="13.25" y="15.5" width="3.5" height="3.5" rx="0" fill="currentColor"/><rect x="18.75" y="15.5" width="3.5" height="3.5" rx="0" fill="currentColor"/><rect x="7.75" y="20.5" width="3.5" height="3.5" rx="0" fill="currentColor"/><rect x="13.25" y="20.5" width="3.5" height="3.5" rx="0" fill="var(--af-hi)"/><rect x="18.75" y="20.5" width="3.5" height="3.5" rx="0" fill="currentColor"/></svg></a>
+  </div>
+  <div class="af-base">
+    <p>Everything on these pages was written, designed, coded, and deployed by me.</p>
+    <p>Brooklyn, NY · <a href="mailto:atma@growthbastards.com">atma@growthbastards.com</a><span class="af-copy"><span class="af-sep"> · </span>© 2011–2026</span></p>
+  </div>
+  </div>
+</footer>
+<!-- unified-footer:end -->
 </body>
 </html>

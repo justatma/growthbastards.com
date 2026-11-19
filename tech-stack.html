@@ -30,18 +30,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap">
 <style>
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html:focus-within{scroll-behavior:smooth}
 body{margin:0;background:#EDF1EE;color:#161D1A;-webkit-font-smoothing:antialiased;font-family:Jost,Futura,'Century Gothic',sans-serif}
 a{color:#386C71;text-decoration-thickness:2px;text-underline-offset:3px}
 a:hover{color:#EB5443}
 a:focus-visible{outline:3px solid currentColor;outline-offset:3px}
 ::selection{background:#F0B323;color:#161D1A}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}}
 .skip{position:absolute;left:-9999px;top:12px;z-index:100;background:#161D1A;color:#EDF1EE;padding:12px 18px;font:600 15px/1 Jost,sans-serif;text-decoration:none}
 .skip:focus{left:12px}
 .wrap{max-width:1080px;margin:0 auto;padding-left:clamp(20px,10.4vw,112px);padding-right:clamp(20px,10.4vw,112px);box-sizing:border-box}
 .topbar{height:26px;background:#161D1A}
-nav{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:32px}
+nav:where(:not(.af *)){display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:32px}
 .brand{display:flex;align-items:center;gap:12px;color:#161D1A;text-decoration:none}
 .brand:hover{color:#161D1A}
 .mark{position:relative;width:36px;height:28.32px;flex:none;isolation:isolate}
@@ -82,14 +83,8 @@ dd{margin:0;font:400 16px/1.5 Jost,sans-serif;color:#505755;text-wrap:pretty}
 @media (max-width:560px){
  .row{grid-template-columns:1fr;gap:4px}
 }
-footer{background:#161D1A;color:#EDF1EE}
-footer .wrap{padding-top:36px;padding-bottom:40px;display:flex;flex-direction:column;gap:24px}
-footer .top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-footer .links{display:flex;gap:24px;flex-wrap:wrap;font:500 15px/1 Jost,sans-serif}
-footer .links a{color:#EDF1EE;text-decoration:none}
-footer .links a:hover{color:#F0B323}
-footer .fine{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;border-top:2px solid #333A38;padding-top:20px;font:400 13px/1.5 Jost,sans-serif;color:#D2D9D5}
 </style>
+<!-- unified-footer-head:start --><link rel="stylesheet" href="/footer.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,400&family=Jost:wght@400;500&display=swap"><style>.af{font:initial}</style><!-- unified-footer-head:end -->
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -286,30 +281,55 @@ footer .fine{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:
 </section>
 </div>
 </main>
-<footer>
-<div class="wrap">
-<div class="top">
-<a href="/" class="brand" style="color:#EDF1EE"><span class="mark" aria-hidden="true">
-<span style="left:0;top:0;width:22.08px;height:22.08px;border-radius:50%;background:#EB5443"></span>
-<span style="left:14.88px;top:7.2px;width:18.72px;height:18.72px;border-radius:50%;background:#3FB3BB;mix-blend-mode:multiply"></span>
-<span style="left:4.8px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#161D1A"></span>
-<span style="left:11.04px;top:7.2px;width:5.28px;height:5.28px;border-radius:50%;background:#161D1A"></span>
-<span style="left:19.2px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#161D1A"></span>
-<span style="left:24.48px;top:13.44px;width:4.32px;height:4.32px;border-radius:50%;background:#161D1A"></span>
-<span style="left:6.24px;top:14.88px;width:8.16px;height:1.92px;background:#161D1A"></span>
-<span style="left:21.12px;top:20.16px;width:6.24px;height:1.68px;background:#161D1A"></span>
-</span><span class="word">GROWTH BASTARDS</span></a>
-<div class="links">
-<a href="/">home</a>
-
-<a href="/#hire-atma">hire</a>
-</div>
-</div>
-<div class="fine">
-<span style="max-width:620px">Growth Bastards is an agentic agency. Atma is human; the specialist team is AI: built, directed, and answered for by him.</span>
-<span>© 2026 Growth Bastards</span>
-</div>
-</div>
+<!-- unified-footer:start -->
+<!-- Unified footer: growthbastards.com. Needs footer.css. Fonts this site must load: see README. -->
+<style>
+.af{--af-bg:#EDF1EE;--af-ink:#161D1A;--af-muted:#505755;--af-rule:#161D1A;--af-bar:#3FB3BB;--af-hi:#F0B323;
+--af-head-color:#386C71;--af-note-color:#386C71;--af-hover:#386C71;--af-mail:#386C71;
+--af-link:400 19px/1.35 Jost, sans-serif;--af-head:500 16px/1.3 Jost, sans-serif;--af-head-case:none;--af-head-track:normal;
+--af-note:italic 400 16px/1.35 'IBM Plex Serif', serif;--af-quote:italic 400 20px/1.45 'IBM Plex Serif', serif;--af-small:400 16px/1.5 Jost, sans-serif;--af-cta:500 19px/1.3 Jost, sans-serif}
+</style>
+<footer class="af">
+  <div class="af-wrap">
+  <div class="af-grid">
+    <figure class="af-quote">
+      <blockquote>“He is a generational talent.”</blockquote>
+      <figcaption>His mom</figcaption>
+    </figure>
+    <nav class="af-col work" aria-label="Work">
+      <p class="af-head">Work</p>
+      <ul>
+      <li aria-current="page">Marketing expert and AI systems engineer <span class="af-note"><span class="af-dot"></span>you are here</span></li>
+      <li><a href="https://atma.marketing/evidence/">The marketing tech I built</a></li>
+      <li><a href="https://portfolio.atma.marketing/">Selected work</a></li>
+      </ul>
+    </nav>
+    <nav class="af-col writing" aria-label="Writing">
+      <p class="af-head">Writing</p>
+      <ul>
+      <li><a href="https://viceandvariance.com">Marketing undressed: a blog</a></li>
+      <li><a href="https://zerotoamillion.marketing/">The science of early-stage marketing <span class="af-note">January 2027</span></a></li>
+      <li><a href="https://startupgenius.io">Engineering the founder mindset <span class="af-note">on Amazon</span></a></li>
+      <li><a href="https://viceandvariance.com/bayesian-marketing.html">The most valuable statistical tool <span class="af-note">free e-book</span></a></li>
+      </ul>
+    </nav>
+    <nav class="af-col exp" aria-label="Experience">
+      <p class="af-head">Experience</p>
+      <ul>
+      <li><a href="https://resume.atma.marketing/">My resume</a></li>
+      <li><a href="https://www.linkedin.com/in/askatma" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://skills.atma.marketing">My tech stack</a></li>
+      <li><a href="https://github.com/justatma" target="_blank" rel="noopener">My repo</a></li>
+      </ul>
+    </nav>
+    <a class="af-cta" href="https://schedule.atma.marketing" target="_blank" rel="noopener"><span class="af-cta-text">Let’s meet</span><span aria-hidden="true">→</span><svg viewBox="0 0 30 30" fill="none" aria-hidden="true" focusable="false"><rect x="4" y="7" width="22" height="19" rx="0" stroke="currentColor" stroke-width="1.75"/><path d="M4 12.5H26" stroke="currentColor" stroke-width="1.75"/><path d="M10 4.5V9.5M20 4.5V9.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"/><rect x="7.75" y="15.5" width="3.5" height="3.5" rx="0" fill="currentColor"/><rect x="13.25" y="15.5" width="3.5" height="3.5" rx="0" fill="currentColor"/><rect x="18.75" y="15.5" width="3.5" height="3.5" rx="0" fill="currentColor"/><rect x="7.75" y="20.5" width="3.5" height="3.5" rx="0" fill="currentColor"/><rect x="13.25" y="20.5" width="3.5" height="3.5" rx="0" fill="var(--af-hi)"/><rect x="18.75" y="20.5" width="3.5" height="3.5" rx="0" fill="currentColor"/></svg></a>
+  </div>
+  <div class="af-base">
+    <p>Everything on these pages was written, designed, coded, and deployed by me.</p>
+    <p>Brooklyn, NY · <a href="mailto:atma@growthbastards.com">atma@growthbastards.com</a><span class="af-copy"><span class="af-sep"> · </span>© 2011–2026</span></p>
+  </div>
+  </div>
 </footer>
+<!-- unified-footer:end -->
 </body>
 </html>
