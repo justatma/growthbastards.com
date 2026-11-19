@@ -1,6 +1,5 @@
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-html:focus-within{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--font-display);-webkit-font-smoothing:antialiased}
 a{color:var(--deep-teal);text-decoration-thickness:1.5px;text-underline-offset:3px}
 a:hover{color:var(--ink)}
@@ -54,4 +53,4 @@ em{color:var(--deep-teal);font-style:normal}
 .next a:hover{color:var(--deep-teal)}
 .next p{max-width:54ch;margin:0}
 @media(max-width:780px){.hero,.step,.next{grid-template-columns:1fr;gap:22px;padding:40px 0}.hero figure{max-width:480px}.chapter h2{margin-bottom:0}#main nav{grid-template-columns:1fr 1fr}#main nav a:nth-child(3){border-left:0}#main nav a:nth-child(n+3){border-top:var(--rule-grid) solid var(--ink)}.next a{justify-self:start}.data li{grid-template-columns:1fr;gap:2px}.gutter{border-left-width:5px;padding-left:16px}}
-@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*{transition:none!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}

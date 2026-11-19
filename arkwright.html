@@ -30,14 +30,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap">
 <style>
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-html:focus-within{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:#EDF1EE;color:#161D1A;-webkit-font-smoothing:antialiased;font-family:Jost,Futura,'Century Gothic',sans-serif}
 a{color:#386C71;text-decoration-thickness:2px;text-underline-offset:3px}
 a:hover{color:#EB5443}
 a:focus-visible{outline:3px solid currentColor;outline-offset:3px}
 ::selection{background:#F0B323;color:#161D1A}
-@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 .skip{position:absolute;left:-9999px;top:12px;z-index:100;background:#161D1A;color:#EDF1EE;padding:12px 18px;font:600 15px/1 Jost,sans-serif;text-decoration:none}
 .skip:focus{left:12px}
 .wrap{max-width:1080px;margin:0 auto;padding-left:clamp(20px,10.4vw,112px);padding-right:clamp(20px,10.4vw,112px);box-sizing:border-box}

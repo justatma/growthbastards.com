@@ -14,8 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap">
 <style>
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-html:focus-within{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:#EDF1EE;color:#161D1A;-webkit-font-smoothing:antialiased}
 a{color:#386C71;text-decoration-thickness:2px;text-underline-offset:3px}
 a:hover{color:#EB5443}
@@ -24,7 +23,7 @@ a:focus-visible,button:focus-visible{outline:3px solid currentColor;outline-offs
 section[id]{scroll-margin-top:12px}
 .skip{position:absolute;left:-9999px;top:12px;z-index:100;background:#161D1A;color:#EDF1EE;padding:12px 18px;font:600 15px/1 Jost,sans-serif;text-decoration:none}
 .skip:focus{left:12px}
-@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 .btn:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 #161D1A}
 </style>
 <!-- unified-footer-head:start --><link rel="stylesheet" href="/footer.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,400&family=Jost:wght@400;500&display=swap"><style>.af{font:initial}</style><!-- unified-footer-head:end -->
